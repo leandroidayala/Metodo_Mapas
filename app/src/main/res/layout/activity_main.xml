@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pc_6.mapas.MainActivity">
+
+    <!--
+    <fragment
+        android:id="@+id/map"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.MapFragment"
+        map:cameraTargetLat="1,2089284"
+        map:cameraTargetLng="-77,2779443"
+        map:cameraZoom="17"/>
+       -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/id_btn_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Normal"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/id_btn_satelite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Satelite"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/id_btn_hibrido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hibrido"
+                android:layout_weight="1"/>
+
+        </LinearLayout>
+
+        <fragment
+            android:id="@+id/map"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:name="com.google.android.gms.maps.MapFragment"/>
+
+    </LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
