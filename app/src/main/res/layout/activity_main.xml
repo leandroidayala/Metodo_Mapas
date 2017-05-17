@@ -30,24 +30,24 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <Button
-                android:id="@+id/id_btn_normal"
+                android:id="@+id/id_btn_seattle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Normal"
+                android:text="SEATTLE"
                 android:layout_weight="1"/>
 
             <Button
-                android:id="@+id/id_btn_satelite"
+                android:id="@+id/id_btn_dublin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Satelite"
+                android:text="DUBLIN"
                 android:layout_weight="1"/>
 
             <Button
-                android:id="@+id/id_btn_hibrido"
+                android:id="@+id/id_btn_tokyo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hibrido"
+                android:text="TOKYO"
                 android:layout_weight="1"/>
 
         </LinearLayout>

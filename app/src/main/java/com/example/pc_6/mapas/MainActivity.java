@@ -18,46 +18,88 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     GoogleMap m_map;
     boolean mapReady = false;
 
+    static final CameraPosition PASTO = CameraPosition.builder()
+            .target(new LatLng(1.2089284,-77.2779443))
+            .zoom(15)
+            .bearing(90)
+            .tilt(45).build();
+
+    static final CameraPosition SEATTLE = CameraPosition.builder()
+            .target(new LatLng(47.6204,-122.3491))
+            .zoom(15)
+            .bearing(90)
+            .tilt(45).build();
+
+    static final CameraPosition DUBLIN = CameraPosition.builder()
+            .target(new LatLng(53.3478,-6.2597))
+            .zoom(15)
+            .bearing(90)
+            .tilt(45).build();
+
+    static final CameraPosition TOKYO = CameraPosition.builder()
+            .target(new LatLng(35.6895,139.6917))
+            .zoom(15)
+            .bearing(90)
+            .tilt(45).build();
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btnNormal = (Button) findViewById(R.id.id_btn_normal);
-        btnNormal.setOnClickListener(new View.OnClickListener() {
+
+        Button btnSeattle = (Button) findViewById(R.id.id_btn_seattle);
+        btnSeattle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                m_map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                viewMap(SEATTLE);
             }
         });
 
-        Button btnSatelite = (Button) findViewById(R.id.id_btn_satelite);
-        btnSatelite.setOnClickListener(new View.OnClickListener() {
+        Button btnDublin = (Button) findViewById(R.id.id_btn_dublin);
+        btnDublin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                m_map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+                viewMap(DUBLIN);
             }
         });
 
-        Button btnHibirido = (Button) findViewById(R.id.id_btn_hibrido);
-        btnHibirido.setOnClickListener(new View.OnClickListener() {
+        Button btnTokyo = (Button) findViewById(R.id.id_btn_tokyo);
+        btnTokyo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                m_map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                viewMap(TOKYO);
             }
         });
+
+
 
 
         MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
 
+    public void viewMap(CameraPosition camera){
+
+        m_map.animateCamera(CameraUpdateFactory.newCameraPosition(camera),1000,null);
+
+    }
+
+
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
         mapReady = true;
-        LatLng pasto = new LatLng(1.2089284,-77.2779443); //Establece valores de latitud y longitud
-        CameraPosition target = CameraPosition.builder().target(pasto).zoom(15).build(); //Establece el valor del Zoom
-        m_map.moveCamera(CameraUpdateFactory.newCameraPosition(target)); //Establece la configuracion anterior
+        m_map = googleMap;
+
+        viewMap(PASTO);
+
+
+        //m_map.moveCamera(CameraUpdateFactory.newCameraPosition(PASTO)); //Establece la configuracion anterior
+
+        //m_map.animateCamera(CameraUpdateFactory.newCameraPosition(PASTO),1000,null);//Visualiza el mapa con una animación
     }
 }
